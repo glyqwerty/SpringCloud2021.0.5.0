@@ -1,0 +1,11 @@
+spring.application.name=bill-server
+user.name=GLY
+user.age=25
+server.port=9300
+spring.cloud.nacos.username=nacos
+spring.cloud.nacos.password=nacos
+spring.cloud.nacos.config.username=nacos
+spring.cloud.nacos.config.password=nacos
+spring.cloud.nacos.config.contextPath=/nacos
+spring.cloud.nacos.config.server-addr=localhost:8848
+spring.config.import=nacos:nacos-config-example.properties?refresh=true

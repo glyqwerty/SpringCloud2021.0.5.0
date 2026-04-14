@@ -1,0 +1,32 @@
+server:
+  port: 9300
+  shutdown: graceful
+spring:
+  application:
+    name: bill-server
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        serverAddr: localhost:8848
+        group: DEFAULT_GROUP
+        # 使用id
+        namespace: c73c948c-d8d7-4aa9-a10a-10e4cfcb5eeb
+      config:
+        contextPath: /nacos
+        serverAddr: localhost:8848
+        prefix: bill-server
+        file-extension: yaml  # 配置文件格式
+        # 使用id
+        namespace: c73c948c-d8d7-4aa9-a10a-10e4cfcb5eeb
+        group: DEFAULT_GROUP
+
+  config:
+    import:
+      - optional:nacos:bill-server.yaml?group=DEFAULT_GROUP&refreshEnabled=true
+
+
+user:
+  name: GLY
+  age: 25
