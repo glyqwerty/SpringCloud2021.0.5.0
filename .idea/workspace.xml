@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bf36f9b8-39e1-40b5-b193-53a7cab50525" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/bill-api/bill-api/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill-api/bill-api/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill-api/bill-api/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill-api/bill-api/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill-api/bill-api/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bill-service/src/main/java/org/example/billservice/demos/nacosconfig/ConfigChangeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/bill-service/src/main/java/org/example/billservice/demos/nacosconfig/ConfigChangeListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bill-service/src/main/java/org/example/billservice/demos/web/ConfigController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bill-service/src/main/java/org/example/billservice/demos/web/ConfigController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bill-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bill-service/src/main/resources/application.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;glyqwerty&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/glyqwerty/SpringCloud2021.0.5.0.git&quot;,
+    &quot;accountId&quot;: &quot;248e288d-ce7a-4ad4-a176-ab4ee4a12ed9&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="3CEz9vsH8cqLRPc5iCFUIgbTCXD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.bill-service [clean].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.BillServiceApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="BillServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="bill-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.billservice.BillServiceApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.billservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.BillServiceApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26927.53" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-IU-251.26927.53" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Logical" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bf36f9b8-39e1-40b5-b193-53a7cab50525" name="Changes" comment="" />
+      <created>1775965377548</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1775965377548</updated>
+      <workItem from="1775965378651" duration="4380000" />
+      <workItem from="1775999496098" duration="3350000" />
+      <workItem from="1776002882467" duration="1253000" />
+      <workItem from="1776078383757" duration="9787000" />
+      <workItem from="1776125851814" duration="354000" />
+      <workItem from="1776253880829" duration="2431000" />
+      <workItem from="1776427888958" duration="20000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
