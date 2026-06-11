@@ -1,0 +1,33 @@
+#spring:
+#  cloud:
+#    sentinel:
+#      transport:
+#        dashboard: localhost:9400
+#      datasource:
+#        flow:
+#          nacos:
+#            server-addr: localhost:8848
+#            username: nacos
+#            password: nacos
+#            data-id: ${spring.application.name}-sentinel-flow
+#            group-id: DEFAULT_GROUP
+#            rule-type: flow
+#            data-type: json
+#        degrade:
+#          nacos:
+#            server-addr: localhost:8848
+#            username: nacos
+#            password: nacos
+#            data-id: ${spring.application.name}-sentinel-degrade
+#            group-id: DEFAULT_GROUP
+#            rule-type: degrade
+#            data-type: json
+#        system:
+#          nacos:
+#            server-addr: localhost:8848
+#            username: nacos
+#            password: nacos
+#            data-id: ${spring.application.name}-sentinel-system
+#            group-id: DEFAULT_GROUP
+#            rule-type: system
+#            data-type: json

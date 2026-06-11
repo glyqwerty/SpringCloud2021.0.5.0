@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.billservice.demos.mapper.InBillDetailMapper">
+    <insert id="inserInBillDetailList">
+        insert into b_inbilldetail (billCode,materialCode,materialName,positionCode,positionName,warehouseCode,warehouseName,qty)
+        values
+        <foreach collection="list" separator="," item="item">
+            (#{item.billCode},#{item.materialCode},#{item.materialName},#{item.positionCode},#{item.positionName},#{item.warehouseCode},#{item.warehouseName},#{item.qty})
+        </foreach>
+    </insert>
+
+
+    <select id="listBillDetailByBillCode" resultType="org.example.domain.InBillDetailInfo">
+        select * from b_inbilldetail where billCode =#{billCode}
+    </select>
+
+    <select id="page"  resultType="org.example.domain.InBillDetailInfo">
+        select * from b_inbilldetail where id>#{startPoint} and id &lt;=#{size}
+    </select>
+</mapper>

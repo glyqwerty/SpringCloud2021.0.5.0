@@ -1,32 +1,83 @@
-server:
-  port: 9300
-  shutdown: graceful
+
 spring:
-  application:
-    name: bill-server
+  servlet:
+    multipart:
+      max-request-size: 2000MB
+      max-file-size: 2000MB
+  #  application:
+#    name: bill-server
+  profiles:
+    active: prod
+    include: seata,sentinel,druid,redis
+    # rocketmq
   cloud:
     nacos:
-      username: nacos
-      password: nacos
-      discovery:
-        serverAddr: localhost:8848
-        group: DEFAULT_GROUP
-        # 使用id
-        namespace: c73c948c-d8d7-4aa9-a10a-10e4cfcb5eeb
       config:
+        username: nacos
+        password: nacos
         contextPath: /nacos
         serverAddr: localhost:8848
-        prefix: bill-server
-        file-extension: yaml  # 配置文件格式
-        # 使用id
-        namespace: c73c948c-d8d7-4aa9-a10a-10e4cfcb5eeb
+        #        prefix: bill-server
+        #        file-extension: yaml  # 配置文件格式
+        #        # 使用id
+        namespace: microservices
         group: DEFAULT_GROUP
-
+  #        refresh-enabled: true
+  #
   config:
     import:
-      - optional:nacos:bill-server.yaml?group=DEFAULT_GROUP&refreshEnabled=true
+      - optional:nacos:bill-server-prod.yaml?group=DEFAULT_GROUP&refreshEnabled=true
+      - optional:nacos:datasource-config.yaml?group=DEFAULT_GROUP&refreshEnabled=true
+      - optional:nacos:redis-config.yaml?group=DEFAULT_GROUP&refreshEnabled=true
+      - optional:nacos:rocketmq-config.yaml?group=DEFAULT_GROUP&refreshEnabled=true
+      - optional:nacos:seata-config.yaml?group=DEFAULT_GROUP&refreshEnabled=true
+      - optional:nacos:sentinel-config.yaml?group=DEFAULT_GROUP&refreshEnabled=true
 
 
-user:
-  name: GLY
-  age: 25
+#spring:
+##  application:
+##    name: bill-server
+#  cloud:
+#    nacos:
+#      username: nacos
+#      password: nacos
+#      discovery:
+#        serverAddr: localhost:8848
+#        group: DEFAULT_GROUP
+##        # 使用id
+#        namespace: c73c948c-d8d7-4aa9-a10a-10e4cfcb5eeb
+dubbo:
+  #  provider:
+#    loadbalance: roundrobin
+  metadata-report:
+    address: nacos://localhost:8848?namespace=c73c948c-d8d7-4aa9-a10a-10e4cfcb5eeb&username=nacos&password=nacos&register-consumer-url=true
+  protocol:
+    # 指定端口，同一台主机运行多个dubbo，避免端口冲突
+    port: 20881
+#    namespace: c73c948c-d8d7-4aa9-a10a-10e4cfcb5eeb
+  application:
+    name: bill-service
+    qos-port: 33333
+    qos-enable: true
+    qos-accept-foreign-ip: false
+  registry:
+    address: nacos://localhost:8848?namespace=c73c948c-d8d7-4aa9-a10a-10e4cfcb5eeb&username=nacos&password=nacos&register-consumer-url=true
+
+#  consumer:
+#    protocol: gRPC
+
+#    use-as-config-center: false
+#  consumer:
+#    check: false
+#  config-center:
+#    enabled: false
+mybatis:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: mapper/*.xml
+  type-aliases-package: org.example.billservice.**.domain
+  type-handlers-package: org.example.billservice.demos.typeHandle
+#logging:
+#  level:
+#    root: warn
+

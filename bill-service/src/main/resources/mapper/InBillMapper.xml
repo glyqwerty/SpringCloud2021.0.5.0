@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.billservice.demos.mapper.InBillMapper">
+
+    <resultMap id="InBillInfoResult" type="org.example.domain.InBillInfo">
+        <result property="billCode" column="billCode"/>
+        <result property="billType" column="billType"/>
+        <result property="status" column="status"/>
+    </resultMap>
+    <insert id="inserInBillInfo" parameterType="org.example.domain.InBillInfo">
+        insert into b_inbillinfo (billCode,billType,status,createTime,createUser) values (#{billCode},#{billType},#{status},now(),#{createUser})
+    </insert>
+    <update id="updateBillStatusByBillCode">
+        update b_inbillinfo set status = #{status}
+                            where billCode =#{billCode}
+                              and status =#{oldStatus}
+    </update>
+    <select id="selectBillInfoByBillCode" resultType="org.example.domain.InBillInfo" parameterType="String">
+        select billCode,billType,status
+        from b_inbillinfo
+        where billCode=#{billCode}
+    </select>
+
+
+</mapper>

@@ -1,0 +1,10 @@
+## 方式一 使用配置文件，方式二：使用 Java 配置类
+#spring:
+#  cache:
+#    type: caffeine
+#    cache-names: material,stock
+#    caffeine:
+#      spec: maximumSize=100, expireAfterWrite=1440m, recordStats
+#      # maximumSize=500: 最大缓存500个对象
+#      # expireAfterWrite=10m: 写入后10分钟过期
+#      # recordStats: 开启统计功能（可选）

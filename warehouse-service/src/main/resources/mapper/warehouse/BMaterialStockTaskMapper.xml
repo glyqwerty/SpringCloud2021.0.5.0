@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.warehouseservice.mapper.BMaterialStockTaskMapper">
+
+    <insert id="batchMaterialStockTask">
+        insert into b_materialstocktask (positionCode,materialCode,qty,billCode)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.positionCode},#{item.materialCode},#{item.qty},#{item.billCode})
+        </foreach>
+    </insert>
+    <insert id="batchBMaterialStockTaskInsert">
+        insert into b_materialstocktask (positionCode,materialCode,qty,billCode)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.positionCode},#{item.materialCode},#{item.qty},#{item.billCode})
+        </foreach>
+    </insert>
+
+    <select id="listMaterialStockTask" resultType="org.example.warehouseservice.domain.BMaterialStockTask">
+        select id,positionCode,materialCode,qty  from b_materialstocktask
+    </select>
+</mapper>

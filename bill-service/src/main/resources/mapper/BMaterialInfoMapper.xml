@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.billservice.demos.mapper.BMaterialInfoMapper">
+    <resultMap id="BMaterialInfoMap" type="org.example.domain.BMaterialInfo">
+        <result property="materialCode" column="materialCode"/>
+        <result property="materialName" column="materialName"/>
+        <result property="materialType" column="materialType"/>
+        <result property="extAttr" column="extAttr" typeHandler="org.example.billservice.demos.typeHandle.JsonTypeHandler"/>
+    </resultMap>
+    <select id="getMaterialInfo" resultMap="BMaterialInfoMap">
+        select materialCode,materialName,materialType,extAttr from b_materialinfo where materialCode = #{materialCode} limit 1
+    </select>
+
+    <select id="listBMaterialInfo" resultMap="BMaterialInfoMap">
+        select materialCode,materialName,materialType,extAttr from b_materialinfo
+    </select>
+
+    <insert id="insertBMaterialInfo" parameterType="org.example.domain.BMaterialInfo">
+        insert into b_materialinfo (materialCode,materialName,materialType,extAttr) values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.materialCode},#{item.materialName},#{item.materialType},#{item.extAttr})
+        </foreach>
+    </insert>
+
+</mapper>

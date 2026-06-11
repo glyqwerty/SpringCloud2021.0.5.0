@@ -1,0 +1,16 @@
+# ========== Dubbo ??????? ==========
+dubbo:
+  application:
+    name: ${spring.application.name}
+#    register-mode: instance
+  consumer:
+    timeout: 5000
+  protocol:
+    threads: 200
+  #dubbo.provider.tag=gray
+  #dubbo.register-mode: instance
+  metadata:
+    report:
+      address: nacos://localhost:8848?namespace=c73c948c-d8d7-4aa9-a10a-10e4cfcb5eeb&username=nacos&password=nacos
+  registry:
+    address: nacos://localhost:8848?namespace=c73c948c-d8d7-4aa9-a10a-10e4cfcb5eeb&username=nacos&password=nacos

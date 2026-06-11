@@ -1,0 +1,27 @@
+server:
+  port: 9301
+spring:
+  application:
+    name: warehouse-service
+  cloud:
+    nacos:
+      config:
+        username: nacos
+        password: nacos
+        server-addr: localhost:8848
+        namespace: microservices
+        group: DEFAULT_GROUP
+  config:
+    import:
+      - optional:nacos:seata-config.yaml?group=DEFAULT_GROUP&refreshEnabled=true
+  profiles:
+    active: prod
+    include: dubbo,rocketmq,druid
+
+mybatis:
+  type-aliases-package: org.example.domain
+  mapper-locations:  classpath*:mapper/**/*Mapper.xml
+  type-handlers-package: org.example.warehouseservice
+logging:
+  level:
+    root: info

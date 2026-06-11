@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.billservice.demos.mapper.BMessageBoxMapper">
+    <insert id="inserBMessageBox" parameterType="org.example.domain.BMessageBox">
+        insert into b_messagebox (billCode,body,status) values
+                                                       (#{billCode},#{body},0)
+    </insert>
+    <update id="batchUpdateByBillCode">
+        update b_messagebox set status = 1 where billCode in
+                                           <foreach collection="list" item="item" separator="," open="(" close=")">
+                                               #{item}
+                                           </foreach>
+    </update>
+    <select id="noSuccess" resultType="org.example.domain.BMessageBox">
+        select billCode,body from b_messagebox where status=0 limit #{size}
+    </select>
+
+
+</mapper>
