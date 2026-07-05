@@ -3,7 +3,7 @@ package org.example.billservice.demos.service.impl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.dubbo.config.annotation.DubboService;
-import org.apache.rocketmq.spring.core.RocketMQTemplate;
+//import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.example.billservice.demos.mapper.BMessageBoxMapper;
 import org.example.billservice.demos.mapper.InBillDetailMapper;
 import org.example.billservice.demos.mapper.InBillMapper;
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@DubboService
+//@DubboService
 public class BillServiceImpl implements DubboBillService,BillService  {
     @Autowired
     private InBillMapper inBillMapper;
@@ -32,8 +32,8 @@ public class BillServiceImpl implements DubboBillService,BillService  {
     @Autowired
     ObjectMapper objectMapper;
 
-    @Autowired
-    private RocketMQTemplate rocketMQTemplate;
+//    @Autowired
+//    private RocketMQTemplate rocketMQTemplate;
     @Override
     public InBillInfo selectBillInfoByBillCode(String billCode) {
         return inBillMapper.selectBillInfoByBillCode(billCode);
@@ -73,24 +73,24 @@ public class BillServiceImpl implements DubboBillService,BillService  {
     @Override
     @Transactional
     public int completeBill(String billCode) throws JsonProcessingException {
-        // 修改入库单的状态改成已完成，并且发送RocketMQ消息
-        InBillInfo billInfo = getBillInfoByBillCode(billCode);
-        if(billInfo==null){
-            throw new IllegalArgumentException("不存在单号 " + billCode);
-        }
-        if(billInfo.getStatus().getCode()!=1){
-            return 0;
-        }
-
-        String json = objectMapper.writeValueAsString(billInfo);
-
-
-        Message<String> build = MessageBuilder.withPayload(json).build();
-//        Message<InBillInfo> build = MessageBuilder.withPayload(billInfo).build();
-        //arg额外参数，会传给本地事务
-        rocketMQTemplate.getProducer().setSendMsgTimeout(5000);
-        rocketMQTemplate.sendMessageInTransaction("order_bill_tx",build,null);
-
+//        // 修改入库单的状态改成已完成，并且发送RocketMQ消息
+//        InBillInfo billInfo = getBillInfoByBillCode(billCode);
+//        if(billInfo==null){
+//            throw new IllegalArgumentException("不存在单号 " + billCode);
+//        }
+//        if(billInfo.getStatus().getCode()!=1){
+//            return 0;
+//        }
+//
+//        String json = objectMapper.writeValueAsString(billInfo);
+//
+//
+//        Message<String> build = MessageBuilder.withPayload(json).build();
+////        Message<InBillInfo> build = MessageBuilder.withPayload(billInfo).build();
+//        //arg额外参数，会传给本地事务
+//        rocketMQTemplate.getProducer().setSendMsgTimeout(5000);
+//        rocketMQTemplate.sendMessageInTransaction("order_bill_tx",build,null);
+//
         return 1;
     }
     @Override

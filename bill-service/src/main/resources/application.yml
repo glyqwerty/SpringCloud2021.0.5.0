@@ -8,7 +8,7 @@ spring:
 #    name: bill-server
   profiles:
     active: prod
-    include: seata,sentinel,druid,redis
+    # include: seata,sentinel,druid,redis
     # rocketmq
   cloud:
     nacos:
@@ -29,9 +29,9 @@ spring:
       - optional:nacos:bill-server-prod.yaml?group=DEFAULT_GROUP&refreshEnabled=true
       - optional:nacos:datasource-config.yaml?group=DEFAULT_GROUP&refreshEnabled=true
       - optional:nacos:redis-config.yaml?group=DEFAULT_GROUP&refreshEnabled=true
-      - optional:nacos:rocketmq-config.yaml?group=DEFAULT_GROUP&refreshEnabled=true
-      - optional:nacos:seata-config.yaml?group=DEFAULT_GROUP&refreshEnabled=true
-      - optional:nacos:sentinel-config.yaml?group=DEFAULT_GROUP&refreshEnabled=true
+#      - optional:nacos:rocketmq-config.yaml?group=DEFAULT_GROUP&refreshEnabled=true
+#      - optional:nacos:seata-config.yaml?group=DEFAULT_GROUP&refreshEnabled=true
+#      - optional:nacos:sentinel-config.yaml?group=DEFAULT_GROUP&refreshEnabled=true
 
 
 #spring:
